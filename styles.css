@@ -275,7 +275,31 @@ header {
 .add-to-cart:hover {
     background-color: #e67300;
 }
+/* Cart item badges */
+.item-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
 
+.item-badge.veg {
+    background-color: green;
+}
+
+.item-badge.nonveg {
+    background-color: red;
+}
+
+/* Empty cart message */
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
 /* Cart Counter */
 .cart-counter {
     position: fixed;
