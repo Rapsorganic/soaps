@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spicy Delights - Premium Pickles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="Pickel.JPG" alt="Pickle Shop Logo">
+                <div class="logo-text">
+                    <span class="brand-name">Spicy Delights</span>
+                    <span class="tagline">Premium Pickles</span>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="cta">
+                <a href="menu.html" class="button">Shop Now</a>
+            </div>
+        </div>
+    </div> 
+    </header>
+
+    <!-- Search and Filter Bar -->
+    <div class="filter-bar">
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search pickles...">
+        </div>
+        <div class="filter-group">
+            <label for="pickle-type">Category</label>
+            <select id="pickle-type">
+                <option value="all">All Categories</option>
+                <option value="nonveg">Non-Veg Pickles</option>
+                <option value="veg">Veg Pickles</option>
+                <option value="combo">Gongura Combo</option>
+                <option value="podulu">Spice Blends</option>
+                <option value="other">Other Items</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Category Sections -->
+    <div class="category-section" id="nonveg-section">
+        <h2 class="category-title">Non-Veg Pickles <span class="nonveg-symbol"></span></h2>
+        <div class="product-grid" id="nonveg-grid"></div>
+    </div>
+    
+    <div class="category-section" id="veg-section">
+        <h2 class="category-title">Vegetarian Pickles <span class="veg-symbol"></span></h2>
+        <div class="product-grid" id="veg-grid"></div>
+    </div>
+    
+    <div class="category-section" id="combo-section">
+        <h2 class="category-title">Gongura Combos <span class="nonveg-symbol"></span></h2>
+        <div class="product-grid" id="combo-grid"></div>
+    </div>
+    
+    <div class="category-section" id="podulu-section">
+        <h2 class="category-title">Spice Blends (Podulu) <span class="veg-symbol"></span></h2>
+        <div class="product-grid" id="podulu-grid"></div>
+    </div>
+    
+    <div class="category-section" id="other-section">
+        <h2 class="category-title">Other Items <span class="veg-symbol"></span></h2>
+        <div class="product-grid" id="other-grid"></div>
+    </div>
+    
+    <!-- Cart Counter -->
+    <div class="cart-counter" id="cart-counter">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+    
+    <!-- Mini Cart -->
+    <div class="mini-cart" id="mini-cart">
+        <div class="mini-cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <div class="cart-actions">
+            <button class="cart-btn view-cart">View Cart</button>
+            <button class="cart-btn checkout">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="term.html">Terms and conditions</a>
+            </div>
+            <div class="footer-section social-icons">
+                <h3>Follow Us</h3>
+                <a href="https://instagram.com/vasavi0325" target="_blank">
+                    <img src="instagram.JPEG" alt="Instagram" width="30" height="30">
+                </a>
+                <a href="https://wa.me/9490049325" target="_blank">
+                    <img src="whatsapp.PNG" alt="WhatsApp" width="30" height="30">
+                </a>
+            </div>
+            <div class="footer-section opening-hours">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 9 AM - 8 PM</p>
+                <p>Sat - Sun: 10 AM - 6 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Pickle Shop. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>  
+</body>
+</html>    
