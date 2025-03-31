@@ -1,5 +1,9 @@
-// Cart System - Shared across all pages
+// cart.js - Complete version that works with both index.html and menu.html
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// =============================================
+// Universal Cart Functions
+// =============================================
 
 // Update cart counter on all pages
 function updateCartCounter() {
@@ -19,7 +23,7 @@ function updateMiniCart() {
         cartItems.innerHTML = '';
         
         if (cart.length === 0) {
-            cartItems.innerHTML = '<p>Your cart is empty</p>';
+            cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
             if (cartTotal) cartTotal.textContent = '₹0';
             return;
         }
@@ -35,11 +39,15 @@ function updateMiniCart() {
             cartItem.innerHTML = `
                 <div class="cart-item-image">
                     <img src="${item.image}" alt="${item.name}">
+                    <span class="item-badge ${item.category === 'veg' ? 'veg' : 'nonveg'}"></span>
                 </div>
                 <div class="cart-item-details">
                     <div class="cart-item-title">${item.name}</div>
                     <div class="cart-item-price">₹${item.price}</div>
-                    <div class="cart-item-quantity">${item.size} × ${item.quantity}</div>
+                    <div class="cart-item-meta">
+                        <span class="size">${item.size}</span>
+                        <span class="quantity">Qty: ${item.quantity}</span>
+                    </div>
                 </div>
                 <button class="delete-item" data-index="${index}">
                     <i class="fas fa-trash"></i>
@@ -61,23 +69,44 @@ function updateMiniCart() {
     }
 }
 
-// Add to cart function (called from product pages)
-function addToCart(productId, size, quantity, product) {
-    const existingItemIndex = cart.findIndex(item => 
-        item.productId === productId && item.size === size
-    );
+// Universal addToCart function that works with both pages
+function addToCart(...args) {
+    let cartItem;
     
-    if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity += quantity;
-    } else {
-        cart.push({
-            productId,
+    // Pattern 1: Called from index.html with complete item object
+    // addToCart({productId: 1, name: "...", ...})
+    if (args.length === 1 && typeof args[0] === 'object') {
+        cartItem = args[0];
+    } 
+    // Pattern 2: Called from menu.html with separate parameters
+    // addToCart(productId, size, quantity, product)
+    else if (args.length >= 4) {
+        const [productId, size, quantity, product] = args;
+        cartItem = {
+            productId: productId,
             name: product.name,
-            size,
+            size: size,
             price: product.price[size],
-            quantity,
-            image: product.image
-        });
+            quantity: quantity,
+            image: product.image,
+            category: product.category || 'nonveg'
+        };
+    } else {
+        console.error("Invalid arguments to addToCart:", args);
+        return;
+    }
+
+    // Find existing item in cart
+    const existingIndex = cart.findIndex(item => 
+        item.productId === cartItem.productId && item.size === cartItem.size
+    );
+
+    if (existingIndex !== -1) {
+        // Update quantity if item exists
+        cart[existingIndex].quantity += cartItem.quantity;
+    } else {
+        // Add new item to cart
+        cart.push(cartItem);
     }
     
     updateCart();
@@ -90,8 +119,11 @@ function updateCart() {
     updateMiniCart();
 }
 
-// Initialize cart on page load
-document.addEventListener('DOMContentLoaded', () => {
+// =============================================
+// Cart UI Initialization
+// =============================================
+
+function initializeCart() {
     // Cart toggle functionality
     const cartCounter = document.getElementById('cart-counter');
     const miniCart = document.getElementById('mini-cart');
@@ -100,6 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartCounter && miniCart) {
         cartCounter.addEventListener('click', () => {
             miniCart.classList.toggle('show');
+        });
+        
+        // Close cart when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!miniCart.contains(e.target) && e.target !== cartCounter) {
+                miniCart.classList.remove('show');
+            }
         });
     }
     
@@ -124,19 +163,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // UPI Modal
+    const upiModal = document.getElementById('upi-modal');
     const upiClose = document.querySelector('.upi-close');
+    
     if (upiClose) {
         upiClose.addEventListener('click', closeUPIModal);
+    }
+    
+    // Close modal when clicking outside
+    if (upiModal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === upiModal) {
+                closeUPIModal();
+            }
+        });
     }
     
     // Initialize cart display
     updateCartCounter();
     updateMiniCart();
-});
+}
 
+// =============================================
 // UPI Payment Functions
+// =============================================
+
 function showUPIPayment(amount) {
-    const upiId = 'v362811@oksbi'; // REPLACE WITH YOUR UPI ID
+    const upiId = 'v362811@oksbi'; // Your UPI ID
     const paymentLink = `upi://pay?pa=${upiId}&pn=SpicyDelights&am=${amount}&cu=INR`;
     
     // Set payment details
@@ -146,7 +199,7 @@ function showUPIPayment(amount) {
     if (paymentAmount) paymentAmount.textContent = amount;
     if (upiPayLink) upiPayLink.href = paymentLink;
     
-    // Generate QR code (using free API)
+    // Generate QR code
     const qrCodeURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(paymentLink)}`;
     const upiQrCode = document.getElementById('upi-qr-code');
     if (upiQrCode) upiQrCode.innerHTML = `<img src="${qrCodeURL}" alt="UPI QR Code">`;
@@ -165,6 +218,12 @@ function closeUPIModal() {
     const upiModal = document.getElementById('upi-modal');
     if (upiModal) upiModal.style.display = 'none';
 }
+
+// =============================================
+// Initialize and Expose Functions
+// =============================================
+
+document.addEventListener('DOMContentLoaded', initializeCart);
 
 // Make functions available globally
 window.addToCart = addToCart;
