@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pickle Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="Pickel.JPG" alt="Pickle Shop Logo">
+                <div class="logo-text">
+                    <span class="brand-name">Spicy Delights</span>
+                    <span class="tagline">Premium Pickles</span>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="cta">
+                <a href="menu.html" class="button">Shop Now</a>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Taste the Tradition, Freshly Pickled for You!</h1>
+            <p>Discover the finest selection of homemade pickles, crafted with love and tradition.</p>
+            <a href="#shop" class="hero-button">Explore Flavors</a>
+        </div>
+        <div class="hero-images">
+            <div class="image-container">
+                <img src="Pickel.JPG" alt="Pickles in jars" loading="lazy">
+                <img src="mango.jpg" alt="Pickles served with meals" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products" id="shop">
+        <h2>SPECIAL PICKLES</h2>
+        <div class="product-grid">
+            <!-- Chicken Pickle -->
+            <div class="product-card" data-id="1" data-category="nonveg">
+                <img src="chicken.jpeg" alt="Chicken Pickle" class="product-image">
+                <img src="Non-veg.jpeg" alt="Non-Veg" class="veg-nonveg-logo">
+                <h3>Chicken Pickle</h3>
+                <div class="product-price">₹549</div>
+                <div class="product-size">Size: 500g</div>
+                <p class="product-description">Spicy chicken pickle with authentic flavors</p>
+                <div class="product-options">
+                    <select class="size-select">
+                        <option value="500g" data-price="549">500g - ₹549</option>
+                        <option value="250g" data-price="299">250g - ₹299</option>
+                    </select>
+                    <select class="quantity-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Mutton Pickle -->
+            <div class="product-card" data-id="2" data-category="nonveg">
+                <img src="mutton.jpeg" alt="Mutton Pickle" class="product-image">
+                <img src="Non-veg.jpeg" alt="Non-Veg" class="veg-nonveg-logo">
+                <h3>Mutton Pickle</h3>
+                <div class="product-price">₹649</div>
+                <div class="product-size">Size: 500g</div>
+                <p class="product-description">Rich mutton pickle with traditional spices</p>
+                <div class="product-options">
+                    <select class="size-select">
+                        <option value="500g" data-price="649">500g - ₹649</option>
+                        <option value="250g" data-price="349">250g - ₹349</option>
+                    </select>
+                    <select class="quantity-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Mango Pickle -->
+            <div class="product-card" data-id="3" data-category="veg">
+                <img src="mango.jpg" alt="Mango Pickle" class="product-image">
+                <img src="Veg.jpeg" alt="Veg" class="veg-nonveg-logo">
+                <h3>Mango Pickle</h3>
+                <div class="product-price">₹349</div>
+                <div class="product-size">Size: 500g</div>
+                <p class="product-description">Tangy mango pickle with perfect spice mix</p>
+                <div class="product-options">
+                    <select class="size-select">
+                        <option value="500g" data-price="349">500g - ₹349</option>
+                        <option value="250g" data-price="199">250g - ₹199</option>
+                    </select>
+                    <select class="quantity-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <h2 class="about-heading">ABOUT US</h2>
+    <section class="about-us" id="about">
+        <div class="about-content">
+            <p>Welcome to Pickle Shop, where tradition meets taste. Our pickles are crafted using time-honored recipes, farm-fresh ingredients, and a passion for flavor. Each jar is packed with love and the rich heritage of homemade goodness.</p>
+            <p>We source our ingredients directly from organic farms, ensuring the best quality. Our meticulous process involves sun-drying, hand-mixing, and naturally fermenting pickles to retain their authentic taste. Experience the legacy of flavors that bring families together.</p>
+        </div>
+        <div class="about-carousel">
+            <img src="farm.jpeg" alt="Farm Fresh Ingredients">
+            <img src="makingprocess.JPG" alt="Traditional Pickle Making">
+            <img src="all.jpg" alt="Happy Customers">
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <h2 class="reviews-heading">Customer Reviews</h2>
+    <section class="customer-reviews">
+        <div class="reviews-container">
+            <div class="review-card">
+                <h3>John Doe</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Absolutely delicious pickles! The taste is authentic and reminds me of homemade ones."</p>
+            </div>
+            <div class="review-card">
+                <h3>Mary Smith</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Great quality and fresh ingredients! Love the variety available."</p>
+            </div>
+            <div class="review-card">
+                <h3>David Brown</h3>
+                <p>⭐⭐⭐⭐</p>
+                <p>"The mango pickle is my favorite! Perfect balance of spices."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Connected Section -->
+    <section class="stay-connected" id="contact">
+        <div class="upper-section">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+                        <div class="contact-left-title">
+                            <h2>Get in touch</h2>
+                            <hr>
+                        </div>
+                        <input type="hidden" name="access_key" value="49d854d9-3a21-4342-a184-d60517fd4a6c">
+                        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                        <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                <div class="contact-right">
+                    <img src="connect.JPEG" alt="Stay Connected">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="cart-counter" id="cart-counter">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+    
+    <div class="mini-cart" id="mini-cart">
+        <div class="mini-cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <div class="cart-actions">
+            <button class="cart-btn checkout">Pay with UPI</button>
+        </div>
+    </div>
+
+    <div id="upi-modal" class="upi-modal">
+        <div class="upi-modal-content">
+            <span class="upi-close">&times;</span>
+            <h3>Complete Payment</h3>
+            <div class="upi-amount">Amount: ₹<span id="payment-amount">0</span></div>
+            <div id="upi-qr-code"></div>
+            <p>OR</p>
+            <a id="upi-pay-link" class="upi-pay-button">
+                <i class="fas fa-external-link-alt"></i> Open UPI App
+            </a>
+            <div class="upi-instructions">
+                <p>After payment, share screenshot on:</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 YOUR_NUMBER</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="term.html">Terms and conditions</a>
+            </div>
+            <div class="footer-section social-icons">
+                <h3>Follow Us</h3>
+                <a href="https://instagram.com/vasavi0325" target="_blank">
+                    <img src="instagram.JPEG" alt="Instagram" width="30" height="30">
+                </a>
+                <a href="https://wa.me/9490049325" target="_blank">
+                    <img src="whatsapp.PNG" alt="WhatsApp" width="30" height="30">
+                </a>
+            </div>
+            <div class="footer-section opening-hours">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 9 AM - 8 PM</p>
+                <p>Sat - Sun: 10 AM - 6 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Pickle Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Link -->
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

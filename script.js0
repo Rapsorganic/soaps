@@ -1,0 +1,39 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation triggers
+    const storyCards = document.querySelectorAll('.story-card');
+    const processSteps = document.querySelectorAll('.process-step');
+    
+    // Story card animation
+    const storyObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    storyCards.forEach(card => {
+        storyObserver.observe(card);
+    });
+    
+    // Process step animation
+    const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    processSteps.forEach(step => {
+        processObserver.observe(step);
+    });
+    
+    // Cart functionality
+    const cartCount = localStorage.getItem('cartCount') || 0;
+    document.querySelector('.cart-count').textContent = cartCount;
+});

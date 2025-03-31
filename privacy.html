@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pickle Shop</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="Pickel.JPG" alt="Pickle Shop Logo">
+                <div class="logo-text">
+                    <span class="brand-name">Spicy Delights</span>
+                    <span class="tagline">Premium Pickles</span>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="cta">
+                <a href="menu.html" class="button">Shop Now</a>
+            </div>
+        </div>
+    </header>
+    <!-- Privacy Policy Content -->
+    <main class="container privacy-container">
+        <div class="privacy-header">
+            <h1><i class="fas fa-lock"></i> Privacy Policy</h1>
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i> Last Updated: <span id="update-date"></span>
+            </div>
+        </div>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+            <p>Dill-icious Pickles respects your privacy. This policy explains how we handle your personal information when you use our website.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-database"></i> 2. Information We Collect</h2>
+            <p>We may collect:</p>
+            <ul class="icon-list">
+                <li><i class="fas fa-user"></i> Contact information (name, email)</li>
+                <li><i class="fas fa-credit-card"></i> Payment details (processed securely)</li>
+                <li><i class="fas fa-cookie"></i> Cookies and usage data</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2><i class="fas fa-shield-alt"></i> 3. Data Security</h2>
+            <p>We implement measures including:</p>
+            <div class="security-features">
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <p>Encryption</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-shield"></i>
+                    <p>Access controls</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-server"></i>
+                    <p>Secure servers</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-phone-volume"></i> 4. Contact Us</h2>
+            <p>For privacy concerns:</p>
+            <div class="contact-methods">
+                <p><i class="fas fa-envelope"></i> Email: hello [at] dillicious.com</p>
+                <p><i class="fas fa-mail-bulk"></i> Postal: 123 Pickle Lane, Brinetown</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="cart-counter" id="cart-counter">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+    
+    <div class="mini-cart" id="mini-cart">
+        <div class="mini-cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <div class="cart-actions">
+            <button class="cart-btn checkout">Pay with UPI</button>
+        </div>
+    </div>
+
+    <div id="upi-modal" class="upi-modal">
+        <div class="upi-modal-content">
+            <span class="upi-close">&times;</span>
+            <h3>Complete Payment</h3>
+            <div class="upi-amount">Amount: ₹<span id="payment-amount">0</span></div>
+            <div id="upi-qr-code"></div>
+            <p>OR</p>
+            <a id="upi-pay-link" class="upi-pay-button">
+                <i class="fas fa-external-link-alt"></i> Open UPI App
+            </a>
+            <div class="upi-instructions">
+                <p>After payment, share screenshot on:</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 YOUR_NUMBER</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="term.html">Terms and conditions</a>
+            </div>
+            <div class="footer-section social-icons">
+                <h3>Follow Us</h3>
+                <a href="https://instagram.com/vasavi0325" target="_blank">
+                    <img src="instagram.JPEG" alt="Instagram" width="30" height="30">
+                </a>
+                <a href="https://wa.me/9490049325" target="_blank">
+                    <img src="whatsapp.PNG" alt="WhatsApp" width="30" height="30">
+                </a>
+            </div>
+            <div class="footer-section opening-hours">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 9 AM - 8 PM</p>
+                <p>Sat - Sun: 10 AM - 6 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Pickle Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Link -->
+     <script src="cart.js"></script>
+    <script src="script.js"></script></body>
+</html>    
