@@ -7,7 +7,7 @@ const products = [
         category: "nonveg",
         description: "Traditional Andhra-style chicken bone pickle with robust flavors",
         price: { "500g": 450, "1kg": 900 },
-        image: "images/chicken.jpeg",
+        image: "chicken.jpg",
         bestSeller: true
     },
     {
@@ -16,7 +16,7 @@ const products = [
         category: "nonveg",
         description: "Juicy boneless chicken pieces in spicy Andhra masala",
         price: { "500g": 550, "1kg": 1100 },
-        image: "images/mutton.jpeg",
+        image: "mutton.jpg",
         bestSeller: true
     },
     {
@@ -25,7 +25,7 @@ const products = [
         category: "nonveg",
         description: "Succulent prawns marinated in traditional spices",
         price: { "500g": 800, "1kg": 1600 },
-        image: "https://via.placeholder.com/300x200?text=Prawn"
+        image: "prawn.jpg"
     },
     {
         id: 4,
@@ -110,7 +110,7 @@ const products = [
         category: "veg",
         description: "Classic Andhra avakaya with bold flavors",
         price: { "500g": 300, "1kg": 600 },
-        image: "https://via.placeholder.com/300x200?text=Mango",
+        image: "Mango.jpg",
         bestSeller: true
     },
     {
@@ -151,7 +151,7 @@ const products = [
         category: "veg",
         description: "Tangy lemon with perfect spice mix",
         price: { "500g": 300, "1kg": 600 },
-        image: "lemon.jpeg"
+        image: "lemon.jpg"
     },
     {
         id: 19,
