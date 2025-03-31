@@ -7,7 +7,7 @@ const products = [
         category: "nonveg",
         description: "Traditional Andhra-style chicken bone pickle with robust flavors",
         price: { "500g": 450, "1kg": 900 },
-        image: "/images/chicken.jpeg",
+        image: "images/chicken.jpeg",
         bestSeller: true
     },
     {
@@ -16,7 +16,7 @@ const products = [
         category: "nonveg",
         description: "Juicy boneless chicken pieces in spicy Andhra masala",
         price: { "500g": 550, "1kg": 1100 },
-        image: "/images/mutton.jpeg",
+        image: "images/mutton.jpeg",
         bestSeller: true
     },
     {
