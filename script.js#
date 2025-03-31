@@ -1,57 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    setupAddToCartButtons();
-    setupSizeSelectors();
-});
-
-function setupAddToCartButtons() {
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const productCard = this.closest('.product-card');
-            const productId = parseInt(productCard.dataset.id);
+    // Debug: Confirm script is loading
+    console.log("Script loaded - adding event listeners");
+    
+    // Add to Cart functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-cart')) {
+            const button = e.target;
+            const productCard = button.closest('.product-card');
             
-            // Get selected options
-            const sizeSelect = productCard.querySelector('.size-select');
-            const quantitySelect = productCard.querySelector('.quantity-select');
-            const size = sizeSelect.value;
-            const quantity = parseInt(quantitySelect.value);
-            const price = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].dataset.price);
+            // Debug: Check if product card is found
+            console.log("Add to Cart clicked", productCard);
             
-            // Find product
-            const product = products.find(p => p.id === productId);
-            
-            if (product) {
-                const cartItem = {
-                    productId: product.id,
-                    name: product.name,
-                    size: size,
-                    price: price,
-                    quantity: quantity,
-                    image: product.image,
-                    category: product.category
-                };
-                
-                addToCart(cartItem);
-                
-                // Visual feedback
-                this.textContent = '✓ Added!';
-                this.classList.add('added');
-                setTimeout(() => {
-                    this.textContent = 'Add to Cart';
-                    this.classList.remove('added');
-                }, 2000);
+            if (!productCard) {
+                console.error("Product card not found!");
+                return;
             }
-        });
-    });
-}
 
-function setupSizeSelectors() {
+            try {
+                const productData = {
+                    id: parseInt(productCard.dataset.id),
+                    name: productCard.querySelector('h3').textContent.trim(),
+                    price: parseFloat(
+                        productCard.querySelector('.product-price')
+                        .textContent.replace('₹', '').replace(',', '')
+                    ),
+                    size: productCard.querySelector('.size-select').value,
+                    quantity: parseInt(productCard.querySelector('.quantity-select').value),
+                    image: productCard.querySelector('.product-image').src,
+                    category: productCard.dataset.category || 'nonveg'
+                };
+
+                // Debug: Show extracted data
+                console.log("Product data:", productData);
+
+                // Verify addToCart exists
+                if (typeof addToCart !== 'function') {
+                    console.error("addToCart is not a function!");
+                    alert("Cart system not loaded. Please refresh the page.");
+                    return;
+                }
+
+                addToCart({
+                    productId: productData.id,
+                    name: productData.name,
+                    price: productData.price,
+                    size: productData.size,
+                    quantity: productData.quantity,
+                    image: productData.image,
+                    category: productData.category
+                });
+
+                // Visual feedback
+                button.textContent = '✓ Added!';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                    button.disabled = false;
+                }, 2000);
+
+            } catch (error) {
+                console.error("Error adding to cart:", error);
+                alert("Error adding item. Please check console for details.");
+            }
+        }
+    });
+
+    // Size selector price updates
     document.querySelectorAll('.size-select').forEach(select => {
         select.addEventListener('change', function() {
-            const selectedOption = this.options[this.selectedIndex];
-            const newPrice = selectedOption.dataset.price;
-            const productCard = this.closest('.product-card');
-            productCard.querySelector('.product-price').textContent = `₹${newPrice}`;
-            productCard.querySelector('.product-size').textContent = `Size: ${selectedOption.value}`;
+            const priceElement = this.closest('.product-card').querySelector('.product-price');
+            const newPrice = this.options[this.selectedIndex].dataset.price;
+            priceElement.textContent = `₹${newPrice}`;
         });
     });
-}
+});
